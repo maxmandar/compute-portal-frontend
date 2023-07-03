@@ -1,0 +1,71 @@
+<div class="h-1/2 bg-gradient-to-r from-indigo-800 to-indigo-500 flex text-white">
+
+  <div class="w-1/2">
+
+    <div class="ml-4 ">
+      <div class="logo">
+        <img src="../../../../assets/images/compute_portal_Logo_white.png" alt="Logo" width="25px"
+          style="margin-right: 10px;">
+        <h2 class="ml-2 pt-4">IPS Hub</h2>
+      </div>
+      <div class="ml-16">
+        <h1>Projects</h1>
+        Welcome to the Project Tracking page, where you can stay on top of all your ongoing projects with ease.
+        And don't worry - our team of engineers is here to empower you every step of the way.
+      </div>
+
+      <div class="ml-16 my-4">
+        <button class="bg-white text-indigo-500 hover:bg-gray-300 font-bold py-2 px-4 rounded"
+          (click)="openCreateProjectDialog()">
+          Create New Project
+        </button>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="w-1/2 relative ">
+    <div class="flex justify-end">
+      <app-header></app-header>
+    </div>
+
+
+
+  </div>
+
+
+</div>
+
+
+<div class="mx-20 -mt-20 mb-4">
+
+  <div class="flex justify-start">
+
+    <div class="relative mb-3 xl:w-96" data-te-input-wrapper-init>
+      <input type="search"
+        class="peer block min-h-[auto] w-full rounded border-0 bg-transparent py-[0.32rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+        id="exampleSearch2" placeholder="Type query" [(ngModel)]="searchText" />
+      <label for="exampleSearch2"
+        class="pointer-events-none absolute top-0 left-3 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-neutral-200">Search</label>
+    </div>
+
+
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 ">
+    <ng-container *ngFor="let project of filterProjects() ">
+      <mat-card class="project-card mat-elevation-z8" (click)="navigateToProjectDetail(project.id)">
+        <mat-card-header>
+          <mat-card-title>{{ project.name }}</mat-card-title>
+          <!-- <mat-card-subtitle>{{ project.description }}</mat-card-subtitle> -->
+        </mat-card-header>
+        <mat-card-content>
+          <p>{{ project.description_objective }}</p>
+        </mat-card-content>
+      </mat-card>
+    </ng-container>
+  </div>
+
+
+</div>

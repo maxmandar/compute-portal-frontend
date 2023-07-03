@@ -1,0 +1,11 @@
+<mat-form-field>
+    <mat-label>Lead Technical Delivery Manager</mat-label>
+    <input matInput type="text" placeholder="Select Lead Technical Delivery Manager" [matAutocomplete]="auto" [formControl]="leadTechnicalDeliveryManagerControl">
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onLeadTechnicalDeliveryManagerSelected()">
+      <mat-option *ngFor="let leadTechnicalDeliveryManager of filteredLeadTechnicalDeliveryManagers | async" [value]="leadTechnicalDeliveryManager">
+        {{ leadTechnicalDeliveryManager.fullname }}
+      </mat-option>
+    </mat-autocomplete>
+    <mat-error *ngIf="leadTechnicalDeliveryManagerControl.invalid">Please select a valid Lead Technical Delivery Manager</mat-error>
+  </mat-form-field>
+  

@@ -1,0 +1,33 @@
+<div class="h-1/2 bg-gradient-to-r from-indigo-800 to-indigo-500 flex text-white">
+    <div class="w-1/2 ">
+        <div class="ml-4 mt-4 ">
+            <div>
+                Cloud Migration Project
+            </div>
+            <div class="ml-16 my-6">
+                <h1>Bill of Material</h1>
+                Take control of your IT resources with our Bill of Materials (BOM) solution - designed to help you
+                accurately track costs, optimize server configurations, and achieve your business objectives.
+                <div class="my-10">
+                    <button class="bg-white text-indigo-800 hover:bg-gray-300 font-bold py-2 px-4 rounded"
+                        (click)="openBomCreateDialog()">
+                        Create Bill of Material
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="w-1/2 relative ">
+        <div class="flex justify-end">
+            <app-header></app-header>
+        </div>
+        <div class="absolute bottom-0  flex justify-end">
+            <img class="mx-4 my-4 h-1/2 w-1/2 object-contain" src="../../../../assets/images/bom_compute_portal.svg"
+                alt="">
+        </div>
+    </div>
+</div>
+<div class="mx-20 -mt-10 mb-4">
+    <app-bom-list></app-bom-list>
+</div>

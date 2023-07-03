@@ -1,0 +1,10 @@
+<mat-form-field>
+    <mat-label>L3 Application</mat-label>
+    <input matInput type="text" placeholder="Select application" [matAutocomplete]="auto" [formControl]="applicationControl">
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onApplicationSelected()">
+      <mat-option *ngFor="let application of filteredApplications | async" [value]="application">
+        {{application.fullname}}
+      </mat-option>
+    </mat-autocomplete>
+    <mat-error *ngIf="applicationControl.invalid">Please select a valid L3 application</mat-error>
+  </mat-form-field>

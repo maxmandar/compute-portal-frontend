@@ -1,0 +1,19 @@
+<!-- *ngIf="isLoggedIn()" -->
+<div >
+  <button mat-icon-button [matMenuTriggerFor]="userMenu" (click)="getUserInfo()">
+    <mat-icon>description</mat-icon>
+  </button>
+  <button mat-icon-button [matMenuTriggerFor]="userMenu" (click)="getUserInfo()">
+    <mat-icon matBadge="15" matBadgeColor="warn">notifications</mat-icon>
+  </button>
+  <button mat-icon-button [matMenuTriggerFor]="userMenu" (click)="getUserInfo()">
+    <mat-icon>account_circle</mat-icon>
+  </button>
+  <mat-menu #userMenu="matMenu">
+    <span>{{ user?.full_name }}</span>
+    <button mat-menu-item (click)="onLogout()">
+      <mat-icon>exit_to_app</mat-icon>
+      <span>Logout</span>
+    </button>
+  </mat-menu>
+</div>

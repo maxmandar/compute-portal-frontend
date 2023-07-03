@@ -1,0 +1,7 @@
+<mat-form-field>
+  <mat-label>ITC Date</mat-label>
+  <input matInput [matDatepicker]="itcDatePicker" [formControl]="itcDateControl">
+  <mat-datepicker-toggle matSuffix [for]="itcDatePicker"></mat-datepicker-toggle>
+  <mat-datepicker #itcDatePicker></mat-datepicker>
+  <mat-error *ngIf="itcDateControl.invalid">ITC Date is required</mat-error>
+</mat-form-field>

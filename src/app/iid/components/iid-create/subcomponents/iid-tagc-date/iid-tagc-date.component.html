@@ -1,0 +1,8 @@
+<mat-form-field>
+    <mat-label>TAGC Date</mat-label>
+    <input matInput [matDatepicker]="tagcDatePicker" [formControl]="tagcDateControl">
+    <mat-datepicker-toggle matSuffix [for]="tagcDatePicker"></mat-datepicker-toggle>
+    <mat-datepicker #tagcDatePicker></mat-datepicker>
+    <mat-error *ngIf="tagcDateControl.invalid">TAGC Date is required</mat-error>
+  </mat-form-field>
+  

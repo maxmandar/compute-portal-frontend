@@ -1,0 +1,9 @@
+.form-row {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.form-field {
+  flex: 1 1 80%;
+}

@@ -1,0 +1,83 @@
+<mat-sidenav-container autosize class="mat-elevation-z8">
+  <mat-sidenav #sidenav mode="side" opened="isExpanded">
+    <mat-nav-list>
+
+      <mat-list-item [routerLink]="'/project'">
+        <div class="menu-item text-lg font-semibold">
+          <img src="../../../../assets/images/compute_portal_Logo_white.png" alt="Logo" width="25px">
+          <span *ngIf="isExpanded" class="menu-item ml-4">IPS Hub</span>
+        </div>
+      </mat-list-item>
+
+      <mat-divider class="border-slate-600"></mat-divider>
+
+
+      <mat-list-item [routerLink]="'/project/overview'">
+        <div class="menu-item text-sm">
+          <mat-icon mat-list-icon>home</mat-icon>
+          <span *ngIf="isExpanded" class="menu-item ml-4">Project Overview</span>
+        </div>
+      </mat-list-item>
+
+      <mat-list-item [routerLink]="'project/setting'">
+        <div class="menu-item text-sm">
+          <mat-icon mat-list-icon>settings</mat-icon>
+          <span *ngIf="isExpanded" class="menu-item ml-4">Setting</span>
+        </div>
+      </mat-list-item>
+
+
+      <mat-list-item (click)="openPermissionDialog()">
+        <div class="menu-item text-sm">
+          <mat-icon mat-list-icon>manage_accounts</mat-icon>
+          <span *ngIf="isExpanded" class="menu-item ml-4">User Permissions</span>
+        </div>
+      </mat-list-item>
+
+
+
+      <mat-divider class="border-slate-600"></mat-divider>
+
+
+      <mat-list-item [routerLink]="'info'">
+        <div class="menu-item text-sm">
+          <mat-icon mat-list-icon>important_devices</mat-icon>
+          <span *ngIf="isExpanded" class="menu-item ml-4">Info</span>
+        </div>
+      </mat-list-item>
+
+      <mat-divider class="border-slate-600"></mat-divider>
+
+      <mat-list-item (click)="isExpanded = !isExpanded">
+        <div class="menu-item text-sm">
+          <mat-icon mat-list-icon class="chevron-button" [ngClass]="{ rotated: isExpanded }">chevron_right
+          </mat-icon>
+        </div>
+      </mat-list-item>
+
+
+
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+
+
+    <div class="flex bg-gradient-to-r from-indigo-800 to-indigo-500 text-white justify-between w-full h-14">
+
+      <div class="mx-4 my-4 ">
+        <h3>Project Test</h3>
+      </div>
+
+      <div class="">
+        <app-header></app-header>
+      </div>
+
+    </div>
+
+    <router-outlet></router-outlet>
+
+
+  </mat-sidenav-content>
+
+</mat-sidenav-container>

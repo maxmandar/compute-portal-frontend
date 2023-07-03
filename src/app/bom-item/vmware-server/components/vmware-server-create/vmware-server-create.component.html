@@ -1,0 +1,150 @@
+<div class="mx-4 my-4 ">
+  <h2 class="">Create VMware Server</h2>
+  <div class="text-gray-500 text-sm -mt-4">
+    Create and manage virtual machines with ease using VMWare Server. Set up your virtual environment quickly and
+    efficiently, and integrate it seamlessly with your existing infrastructure.
+  </div>
+
+  <mat-dialog-content class="">
+    <div class="my-10 mx-10">
+
+
+      <div class="flex flex-row gap-4 justify-end">
+        <button mat-button color="primary" (click)="toggleAccordion()">
+          {{ isAccordionExpanded ? 'Collapse All' : 'Expand All' }}
+        </button>
+
+      </div>
+      <mat-accordion class="" multi>
+        <mat-expansion-panel>
+
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Server Information
+            </mat-panel-title>
+            <mat-panel-description class="flex justify-between">
+              Enter server environment, layer and detail
+              <mat-icon>info</mat-icon>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+
+          <div class="flex gap-4">
+            <app-environment></app-environment>
+            <app-layer></app-layer>
+
+          </div>
+          <div>
+            <app-server-detail></app-server-detail>
+          </div>
+
+        </mat-expansion-panel>
+
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Operating System
+            </mat-panel-title>
+            <mat-panel-description class="flex justify-between">
+              Chose Operating System
+              <mat-icon>desktop_windows</mat-icon>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+
+          <app-vmware-server-os></app-vmware-server-os>
+
+
+        </mat-expansion-panel>
+
+
+
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Server Size
+            </mat-panel-title>
+            <mat-panel-description class="flex justify-between">
+              Server Size
+              <mat-icon>memory</mat-icon>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <app-vmware-server-size></app-vmware-server-size>
+          <app-vmware-server-extra-ram></app-vmware-server-extra-ram>
+        </mat-expansion-panel>
+
+
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Storage
+            </mat-panel-title>
+            <mat-panel-description class="flex justify-between">
+              Storage Size
+              <mat-icon>storage</mat-icon>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <app-san-storage-type></app-san-storage-type>
+          <div class="flex flex-row gap-4">
+
+
+            <app-san-storage-app-binary-size></app-san-storage-app-binary-size>
+            <app-san-storage-app-data-log-size></app-san-storage-app-data-log-size>
+          </div>
+          <div class="flex mt-4">
+            <mat-checkbox [formControl]="addNasStorageControl">Add NAS Storage</mat-checkbox>
+          </div>
+
+          <app-nas-storage-size *ngIf="addNasStorageControl.value"></app-nas-storage-size>
+
+        </mat-expansion-panel>
+
+
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Auxiliary Tools
+            </mat-panel-title>
+            <mat-panel-description class="flex justify-between">
+              Auxiliary Tools
+              <mat-icon>widgets</mat-icon>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <app-connect-direct></app-connect-direct>
+          <app-bigfix></app-bigfix>
+        </mat-expansion-panel>
+
+
+
+
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Cost
+            </mat-panel-title>
+            <mat-panel-description class="flex justify-between">
+              Cost Summary
+              <mat-icon>monetization_on</mat-icon>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+
+          <app-vmware-server-cost></app-vmware-server-cost>
+        </mat-expansion-panel>
+
+
+      </mat-accordion>
+    </div>
+
+
+  </mat-dialog-content>
+
+
+
+
+  <mat-dialog-actions align="end">
+
+    <button mat-button [mat-dialog-close]="true" (click)="onCancel()">
+      Cancel
+    </button>
+    <button mat-button color="primary" [mat-dialog-close]="true" (click)="onCreate()" [disabled]="!(isFormValid$ | async)">Create</button>
+  </mat-dialog-actions>
+
+</div>

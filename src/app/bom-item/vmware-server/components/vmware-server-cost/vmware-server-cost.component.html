@@ -1,0 +1,40 @@
+<button mat-raised-button color="primary" (click)="exportToExcel()">Export to Excel</button>
+
+<table mat-table [dataSource]="dataSourceCombined" class="mat-elevation-z8">
+  
+  <ng-container matColumnDef="category">
+    <th mat-header-cell *matHeaderCellDef> Category </th>
+    <td mat-cell *matCellDef="let element">{{element.category}}</td>
+  </ng-container>
+
+    <ng-container matColumnDef="config">
+      <th mat-header-cell *matHeaderCellDef> Configuration </th>
+      <td mat-cell *matCellDef="let element">{{element.config}}</td>
+    </ng-container>
+  
+    <ng-container matColumnDef="item">
+      <th mat-header-cell *matHeaderCellDef> Item </th>
+      <td mat-cell *matCellDef="let element">{{element.item}}</td>
+    </ng-container>
+  
+    <ng-container matColumnDef="cost">
+      <th mat-header-cell *matHeaderCellDef> Cost (SGD) </th>
+      <td mat-cell *matCellDef="let element">{{element.cost | currency}}</td>
+    </ng-container>
+  
+    <ng-container matColumnDef="type">
+      <th mat-header-cell *matHeaderCellDef> Type </th>
+      <td mat-cell *matCellDef="let element">{{element.type}}</td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let element; columns: displayedColumns;"></tr>
+  
+  </table>
+  
+  <pre>{{dataSourceCombined | json}}</pre>
+  <mat-divider>Object</mat-divider>
+  <pre>{{vmwareServerCostCombined | json}}</pre>
+  
+
+

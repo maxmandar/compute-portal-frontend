@@ -1,0 +1,10 @@
+<mat-form-field>
+    <mat-label>Domain Architect</mat-label>
+    <input matInput type="text" placeholder="Select architect" [matAutocomplete]="auto" [formControl]="architectControl">
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onArchitectSelected()">
+      <mat-option *ngFor="let architect of filteredArchitects | async" [value]="architect.fullname">
+        {{architect.fullname}}
+      </mat-option>
+    </mat-autocomplete>
+    <mat-error *ngIf="architectControl.invalid">Please select a valid domain architect</mat-error>
+</mat-form-field>

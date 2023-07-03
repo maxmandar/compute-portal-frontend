@@ -1,0 +1,105 @@
+<!-- <mat-toolbar color="primary" class="mat-elevation-z8">
+  <div class="logo">
+    <img src="../../../../assets/images/compute_portal_Logo_white.png" alt="Logo" width="25px" style="margin-right: 10px;">
+    <h2 class="ml-2 pt-4">Compute Portal</h2>
+  </div>
+ 
+</mat-toolbar> -->
+
+<div class=" h-full bg-gradient-to-r from-indigo-800 to-indigo-500 text-white 
+">
+
+  <div class="flex items-center justify-center text-center">
+    <img class="mt-6 w-16 mr-4" src="../../../../assets/images/compute_portal_Logo_white.png" alt="Logo">
+    <div class="mt-6 text-4xl font-semibold">IPS Hub</div>
+  </div>
+
+  <div class="flex">
+    <div class="w-3/5  ml-12 mt-20  text-white ">
+      <h1 class="text-11xl">Welcome to IPS Hub</h1>
+      <p>Infrastructure Platform Services Hub or IPS Hub is your one-stop solution for purchasing, buidling and provisioning Infrastructure services. </p>
+      <li>Provision new servers quickly and easily</li>
+      <li>Manage configuration across your Infrastructure</li>
+      <li>Deploy applications with ease and speed</li>
+      <li>Ensure that your Infrastructure is always up-to-date and secure</li>
+      <p class="pt-5">Our goal is to help you streamline your Infrastructure management processes, so you can
+        focus on what matters most - your business. So lets Get Started! </p>
+      <img src="../../../assets/images/serverLoginServer.svg" alt="" style="width:400px">
+    </div>
+
+    <div class="w-2/5 mt-20 ">
+      <mat-card class="login-card ml-10 mat-elevation-z8">
+        <div class=" flex justify-center items-center">
+          <img class="center" src="../../../assets/images/UOBLogo.png" alt="">
+        </div>
+
+        <mat-card-title>
+          <div class="text-blue-700">
+            <h2>Sign in</h2>
+          </div>
+         
+        </mat-card-title>
+
+        <mat-card-subtitle>
+          Use your UOB Account
+        </mat-card-subtitle>
+
+        <div class="pt-4">
+
+          <form [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()">
+
+            <mat-form-field appearance="fill">
+              <mat-label>Enter Domain Username</mat-label>
+              <input matInput type="text" formControlName="username">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+              <mat-label>Enter your password</mat-label>
+              <input matInput type="password" formControlName="password">
+            </mat-form-field>
+
+            <mat-card-actions class="flex justify-center">
+              <button mat-raised-button color="primary" [disabled]="isLoading">
+
+                <ng-container *ngIf="!isLoading; else spinner">
+                  Get Started
+                </ng-container>
+
+
+              </button>
+              <ng-template #spinner>
+                <!-- add MatProgressSpinner component here -->
+                <mat-progress-spinner *ngIf="isLoading" diameter="30" mode="indeterminate"></mat-progress-spinner>
+              </ng-template>
+            </mat-card-actions>
+
+          </form>
+
+        </div>
+
+      </mat-card>
+
+    </div>
+
+  </div>
+
+  <!-- <div class="bg-theme-primary">
+
+    <form [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()">
+      <div>
+        <label for="username">Username:</label>
+        <input type="text" id="username" formControlName="username">
+      </div>
+
+      <div>
+        <label for="password">Password:</label>
+        <input type="password" id="password" formControlName="password">
+      </div>
+
+      <button type="submit" [disabled]="loginForm.invalid">Submit</button>
+    </form>
+
+    <button (click)="onLogoutSubmit()">Log off</button>
+  </div>
+
+</div> -->

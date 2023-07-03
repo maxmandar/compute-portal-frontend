@@ -1,0 +1,8 @@
+<mat-form-field appearance="fill">
+    <mat-label>Select Layer</mat-label>
+    <mat-select (selectionChange)="onLayerSelected($event.value)">
+      <mat-option *ngFor="let layer of layers" [value]="layer.code">
+        {{ layer.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>

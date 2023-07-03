@@ -1,0 +1,103 @@
+<h2 mat-dialog-title>Create a Infra Initiation Document</h2>
+<div mat-dialog-content>
+
+
+
+    <mat-accordion class="example-headers-align mat-elevation-z8 mt-4">
+        <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Project Information
+                </mat-panel-title>
+                <mat-panel-description>
+                    Enter project information
+                    <mat-icon *ngIf="isProjectInformationValid" color="primary">check_circle</mat-icon>
+                    <mat-icon>feed</mat-icon>
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+
+
+            <app-segment></app-segment>
+            <app-sub-segment></app-sub-segment>
+            <app-budget></app-budget>
+            <app-project-steering-committee></app-project-steering-committee>
+            <div>
+                <app-project-manager></app-project-manager>
+            </div>
+      
+
+
+
+            <mat-action-row>
+                <button mat-button color="primary" type="button" (click)="nextStep()">Next</button>
+            </mat-action-row>
+
+        </mat-expansion-panel>
+
+        <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    IT System Recoverability
+                </mat-panel-title>
+                <mat-panel-description>
+                    Enter IT system recoverability details
+                    <mat-icon>apps_outage</mat-icon>
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+
+            <!-- Add your form elements here -->
+
+
+            <mat-action-row>
+                <button mat-button color="warn" type="button" (click)="prevStep()">Previous</button>
+                <button mat-button color="primary" type="button" (click)="nextStep()">Next</button>
+            </mat-action-row>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Deployment Requirement
+                </mat-panel-title>
+                <mat-panel-description>
+                    Enter deployment requirement details
+                    <mat-icon>where_to_vote</mat-icon>
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+
+            <!-- Add your form elements here -->
+
+            <mat-action-row>
+                <button mat-button color="warn" type="button" (click)="prevStep()">Previous</button>
+                <button mat-button color="primary" type="button" (click)="nextStep()">Next</button>
+            </mat-action-row>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel [expanded]="step === 3" (opened)="setStep(3)">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Sizing Volumetric
+                </mat-panel-title>
+                <mat-panel-description>
+                    Enter sizing volumetric details
+                    <mat-icon>analytics</mat-icon>
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+
+            <!-- Add your form elements here -->
+
+            <mat-action-row>
+                <button mat-button color="warn" type="button" (click)="prevStep()">Previous</button>
+                <button mat-button color="primary" type="button" (click)="nextStep()">End</button>
+            </mat-action-row>
+        </mat-expansion-panel>
+
+    </mat-accordion>
+
+
+</div>
+
+<div mat-dialog-actions>
+    <button mat-button color="primary" type="button" (click)="onSave()">Save</button>
+    <button mat-button color="primary" type="button" (click)="onSubmit()">Submit</button>
+</div>

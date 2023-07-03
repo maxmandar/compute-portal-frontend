@@ -1,0 +1,22 @@
+.rowElement {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bg-image {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 300px;
+  height: auto;
+  background-position: left bottom;
+  z-index: -1; /* set z-index to negative value */
+  
+}
+
+tr.hover-row:hover {
+  cursor: pointer;
+  background-color: whitesmoke; ;
+}
+

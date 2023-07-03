@@ -1,0 +1,55 @@
+<div class="flex flex-wrap mb-4">
+  <div class="w-full md:w-1/2 lg:w-1/4 lg:pr-4">
+    <app-iid-segment (segmentSelected)="onSegmentSelected($event)"></app-iid-segment>
+  </div>
+
+
+  <div class="w-full md:w-1/2 lg:w-1/4 lg:pl-4">
+    <app-iid-subsegment (subSegmentSelected)="onSubSegmentSelected($event)"></app-iid-subsegment>
+
+  </div>
+
+  <div class="w-full md:w-1/2 lg:w-1/4 lg:pl-4">
+    <app-iid-budget (budgetSelected)="onBudgetSelected($event)">
+
+    </app-iid-budget>
+  </div>
+
+</div>
+
+<div>
+
+  <app-iid-project-steering-committee-members
+    (selectedEmployeesChange)="onSelectedEmployeesChange($event)"></app-iid-project-steering-committee-members>
+
+</div>
+
+<div class="flex flex-wrap mb-4 space-x-20">
+
+  <app-iid-technology-and-operation-head ></app-iid-technology-and-operation-head>
+  <app-iid-project-manager></app-iid-project-manager>
+</div>
+
+
+<div class="flex flex-wrap mb-4 space-x-20">
+  <app-iid-domain-architect></app-iid-domain-architect>
+  <app-iid-security-architect></app-iid-security-architect>
+</div>
+
+<div class="flex flex-wrap mb-4 space-x-20">
+  <app-iid-domain-architect></app-iid-domain-architect>
+  <app-iid-security-architect></app-iid-security-architect>
+</div>
+
+<div class="flex flex-wrap mb-4 space-x-20">
+  <app-iid-lead-technical-delievery-manager></app-iid-lead-technical-delievery-manager>
+  <app-iid-application-l3></app-iid-application-l3>
+</div>
+
+<div class="flex flex-wrap mb-4 space-x-20">
+
+  <app-iid-tagc-date></app-iid-tagc-date>
+  <app-iid-itc-date> </app-iid-itc-date>
+  <app-iid-golive-date></app-iid-golive-date>
+
+</div>

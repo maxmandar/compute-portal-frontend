@@ -1,0 +1,66 @@
+<!-- <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 ">
+    <ng-container *ngFor="let bom of boms">
+      <mat-card class="bom-card mat-elevation-z8" (click)="navigateToBomDetail(bom.id)">
+        <mat-card-header>
+          <mat-card-title>{{ bom.name }}</mat-card-title>
+          <mat-card-subtitle>{{ bom.description}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p>1 Serves,300 GB, 300 RAM, 4 cores</p>
+
+          <p>Total SGD 324,000</p>
+          <p>CE SGD 100,000, AS SGD 200,000</p>
+        </mat-card-content>
+        <mat-divider></mat-divider>
+        <mat-card-footer>
+         {{ bom.status }}
+        </mat-card-footer>
+      </mat-card>
+    </ng-container>
+  </div> -->
+
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+  <ng-container *ngFor="let bom of boms">
+    <mat-card class="bom-card mat-elevation-z8 p-4" (click)="navigateToBomDetail(bom.id)">
+      <mat-card-header>
+        <mat-card-title class="text-lg font-semibold">{{ bom.name }}</mat-card-title>
+        <mat-card-subtitle class="text-sm">{{ bom.description}}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p class="text-sm ">1 Server, 300 GB, 300 RAM, 4 cores</p>
+
+        <div class="text-sm ">
+          SGD 324,000
+        </div>
+        <p class="text-xs">CE SGD 100,000, AS SGD 200,000</p>
+        <div class="tex-xs text-gray-500">
+          
+         </div>
+
+      </mat-card-content>
+
+      <mat-card-actions align="end">
+        <!-- <button mat-button [color]="getColorForStatus(bom.status)">
+          {{ bom.status | titlecase }}
+        </button> -->
+        <button mat-button [color]="getColorForStatus(bom.status)">
+          <mat-icon>{{ getIconForStatus(bom.status) }}</mat-icon>
+          {{ bom.status | titlecase }}
+        </button>
+        <!-- <span
+        class="px-2 py-1 ml-2 text-sm font-semibold rounded"
+        [ngClass]="{
+          'bg-gray-500 text-white': bom.status === 'requested',
+          'bg-blue-500 text-white': bom.status === 'reviewed',
+          'bg-indigo-500 text-white': bom.status === 'revision',
+          'bg-green-500 text-white': bom.status === 'approved',
+          'bg-red-500 text-white': bom.status === 'rejected'
+        }"
+      >
+        {{ bom.status | titlecase}}
+      </span> -->
+      </mat-card-actions>
+
+    </mat-card>
+  </ng-container>
+</div>

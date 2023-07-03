@@ -1,0 +1,62 @@
+
+.bg-image {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 300px;
+  z-index: -1;
+}
+
+.project-image{
+  width: 400px;
+}
+
+.project-card {
+  width: 300px;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.24), 0 2px 6px rgba(0, 0, 0, 0.12);
+  transition: background-color 0.2s ease-in-out;
+
+}
+
+.bg-indigo {
+  background-color: #3f51b5;
+
+}
+
+.project-card:hover {
+  cursor: pointer;
+  background-color: #f5f5f5;
+}
+
+
+.transparent-form-field {
+  background-color: transparent;
+}
+
+
+.mat-focused .mat-form-field-label {
+      /*change color of label*/
+      color: white !important;
+     }
+    
+     .mat-form-field-underline {
+      /*change color of underline*/
+      background-color: white !important;
+    } 
+    
+    .mat-form-field-ripple {
+     /*change color of underline when focused*/
+     background-color: white !important;;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .spacer {
+      flex: 1 1 auto;
+    }

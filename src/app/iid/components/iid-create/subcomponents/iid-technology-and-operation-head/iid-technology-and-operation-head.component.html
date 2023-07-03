@@ -1,0 +1,11 @@
+<mat-form-field>
+    <mat-label>Technology/Operations Head</mat-label>
+    <input matInput type="text" placeholder="Select head" [matAutocomplete]="auto" [formControl]="headControl">
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onHeadSelected()">
+      <mat-option *ngFor="let head of filteredHeads | async" [value]="head">
+        {{head.fullname}}
+      </mat-option>
+    </mat-autocomplete>
+    <mat-error *ngIf="headControl.invalid">Please select a valid head</mat-error>
+  </mat-form-field>
+  

@@ -1,0 +1,12 @@
+<mat-form-field appearance="fill">
+  <mat-label>Select Environment</mat-label>
+  <mat-select (selectionChange)="onSelectedEnvironment($event.value)" [formControl]="selectedEnvironment">
+    <mat-option *ngFor="let environment of environments" [value]="environment.code">
+      {{ environment.name }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+
+
+<!-- [formControl]="selectedEnvironment" -->

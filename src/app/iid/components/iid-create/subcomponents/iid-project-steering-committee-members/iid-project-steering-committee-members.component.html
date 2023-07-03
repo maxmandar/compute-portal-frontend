@@ -1,0 +1,43 @@
+
+<form >
+  <mat-form-field  appearance="fill">
+    <mat-label>Project Steering Committee Members</mat-label>
+
+<!-- Mat chip code now -->
+<mat-chip-grid #chipGrid [formControl]="chipGridFormControl">
+  <mat-chip-row *ngFor="let employee of selectedEmployees" (removed)="remove(employee)">
+    {{employee}}
+    <button matChipRemove>
+      <mat-icon>cancel</mat-icon>
+    </button>
+  </mat-chip-row>
+
+
+
+</mat-chip-grid>
+
+
+
+
+    <input type="text" aria-label="Number" #memberEmployeeInput placeholder="Enter employee name" 
+      matInput [formControl]="employeeFormControl"
+      [matAutocomplete]="auto"
+      [matChipInputFor]="chipGrid"
+      >
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+      <mat-option *ngFor=" let employee of filteredEmployees | async" [value]="employee.fullname">
+        {{employee.fullname}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+  <!-- <mat-error *ngIf="employeeFormControl.hasError('atLeastOneEmployee')">Please select at least one employee.</mat-error> -->
+
+  
+</form>
+
+
+<!-- <mat-chip-grid #chipGrid>
+    <mat-chip-row *ngFor="let employee of selectedEmployees">
+      {{employee.fullname}}
+    </mat-chip-row>
+  </mat-chip-grid> -->

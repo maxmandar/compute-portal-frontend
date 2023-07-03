@@ -1,0 +1,20 @@
+<div class="flex flex-row gap-1 ">
+
+
+
+    <mat-form-field appearance="fill" class="w-80">
+      <mat-label>Choose Vmware Server Size</mat-label>
+      <mat-select [formControl]="vmwareServerSizeControl">
+        <mat-option *ngFor="let size of vmwareServerSizes" [value]="size">
+          {{ size.vcpu }} <span class="text-gray-400 text-xs">RAM </span>/ {{ size.ram_gb }} GB
+          <span class="text-gray-400 text-xs">vCPU</span>
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+
+  <mat-icon matSuffix class=" hover:cursor-pointer hover:text-indigo-600 text-gray-500"
+    matTooltip="Click for more information" matTooltipPosition="above"
+    (click)="openConfluencePage()">help_outline</mat-icon>
+
+</div>

@@ -1,0 +1,59 @@
+<div class="h-full flex">
+
+    <div class="w-3/4 relative z-10">
+        <div class="ml-4 mt-4 ">
+            <div>
+                Cloud Migration Project
+            </div>
+            <div class="mt-4 flex w-ful gap-x-4">
+                <div class="">
+                    <h2>Phase1</h2>
+                </div>
+                
+                <!-- <div class="">
+                    <button mat-button color="primary" (click)="toggleArrow()" [matMenuTriggerFor]="menu">
+                        Create
+                        <mat-icon>{{ arrowIcon }}</mat-icon>
+                    </button>
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item (click)="onMenuItemClick('Virtual Servers')">Virtual Servers</button>
+                        <button mat-menu-item (click)="onMenuItemClick('Database Servers')">Database Servers</button>
+                    </mat-menu>
+                </div> -->
+                <div>
+  
+                <app-bom-item-create></app-bom-item-create>
+                </div>
+
+       
+
+            </div>
+            <div class="flex">
+                <!-- Load the component dynamically based on the selected menu item -->
+                <mat-tab-group>
+                    <mat-tab label="Resources">
+                        <div class="mx-4 my-4">
+                            <app-bom-resource></app-bom-resource>
+                        </div>
+                    </mat-tab>
+                    <mat-tab label="Cost Summary"> Content 3 </mat-tab>
+                </mat-tab-group>
+
+            </div>
+
+            <div class="flex justify-end mr-14">
+                <button mat-button  color="primary">Submit</button>
+            </div>
+
+        </div>
+    </div>
+    <div class="w-1/4 relative z-0 ">
+        <div class="flex justify-end ">
+            <app-header class="text-gray-500"></app-header>
+        </div>
+        <div class="absolute bottom-0  flex justify-end ">
+            <img class="mx-4 my-4 object-contain" src="../../../../assets/images/bom_compute_portal.svg" alt="">
+        </div>
+    </div>
+
+</div>

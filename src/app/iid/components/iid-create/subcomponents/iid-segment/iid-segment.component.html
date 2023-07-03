@@ -1,0 +1,10 @@
+<mat-form-field>
+  <mat-label>Segment</mat-label>
+  <mat-select [formControl]="segmentFormControl" (selectionChange)="onSegmentChange($event.value)" required>
+    <mat-option *ngFor="let segment of segments$ | async" [value]="segment">
+      {{ segment.name }}
+    </mat-option>
+  </mat-select>
+  <mat-error *ngIf="segmentFormControl.touched && segmentFormControl.invalid">{{ getErrorMessage() }}</mat-error>
+
+</mat-form-field>

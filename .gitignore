@@ -1,0 +1,24 @@
+# compiled output
+# /dist
+# /tmp
+# /out-tsc
+
+# dependencies
+/node_modules
+
+# Angular
+/.angular
+
+# IDEs and editors
+# /.idea
+# /.vscode
+# *.log
+# *.swp
+# *.swo
+
+# misc
+# /.DS_Store
+# /Thumbs.db
+# /npm-debug.log*
+# /yarn-debug.log*
+# /yarn-error.log*

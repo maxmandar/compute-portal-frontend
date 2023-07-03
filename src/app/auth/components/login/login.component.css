@@ -1,0 +1,46 @@
+.bg-theme-primary {
+  background-color: #3f51bf;
+  height: 100vh;
+}
+
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.border{
+  border-color: red;
+}
+
+
+.login-card {
+  text-align: center;
+  max-width: 300px;
+  max-height: 370px;
+  min-height: 370px;
+  min-width: 300px;
+  border-radius: 20px;
+
+}
+
+
+.companyLogo{
+
+  width: 100px;
+  height: 80px;
+
+
+}
+
+.mat-form-field {
+  background-color: #fff;
+}
+
+.center{
+display: block;
+margin-left: auto;
+margin-right: auto;
+width: 30%;
+}
+

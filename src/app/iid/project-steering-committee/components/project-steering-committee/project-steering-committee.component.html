@@ -1,0 +1,22 @@
+<h2>Project Steering Committee Members</h2>
+
+<div *ngIf="(projectSteeringCommitteeService.selectedMembers$ | async)?.length === 0">
+  Error: At least one member must be selected.
+</div>
+
+<div *ngFor="let member of projectSteeringCommitteeService.selectedMembers$ | async">
+  <mat-chip [removable]="true" (removed)="onMemberRemoved(member)">
+    {{ member.fullname }} ({{ member.username }})
+    <mat-icon matChipRemove>cancel</mat-icon>
+  </mat-chip>
+</div>
+
+<mat-form-field>
+  <mat-label>Select a Member</mat-label>
+  <input type="text" matInput [formControl]="memberControl" [matAutocomplete]="auto">
+  <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onMemberSelected($event.option.value)">
+    <mat-option *ngFor="let employee of filteredEmployees" [value]="employee">
+      {{ employee.fullname }} ({{ employee.username }})
+    </mat-option>
+  </mat-autocomplete>
+</mat-form-field>

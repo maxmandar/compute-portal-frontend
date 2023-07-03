@@ -1,0 +1,7 @@
+<mat-form-field>
+  <mat-label>Go-Live Date</mat-label>
+  <input matInput [matDatepicker]="goliveDatePicker" [formControl]="goliveDateControl">
+  <mat-datepicker-toggle matSuffix [for]="goliveDatePicker"></mat-datepicker-toggle>
+  <mat-datepicker #goliveDatePicker></mat-datepicker>
+  <mat-error *ngIf="goliveDateControl.invalid">Golive Date is required</mat-error>
+</mat-form-field>

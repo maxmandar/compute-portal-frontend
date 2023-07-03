@@ -1,0 +1,11 @@
+<mat-form-field>
+    <mat-label>Security Architect</mat-label>
+    <input matInput type="text" placeholder="Select architect" [matAutocomplete]="auto" [formControl]="securityArchitectControl">
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onSecurityArchitectSelected()">
+      <mat-option *ngFor="let architect of filteredSecurityArchitects | async" [value]="architect.fullname">
+        {{architect.fullname}}
+      </mat-option>
+    </mat-autocomplete>
+    <mat-error *ngIf="securityArchitectControl.invalid">Please select a valid security architect</mat-error>
+  </mat-form-field>
+  

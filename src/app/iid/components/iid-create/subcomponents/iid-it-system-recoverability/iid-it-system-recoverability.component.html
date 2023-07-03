@@ -1,0 +1,59 @@
+
+
+<form >
+    <mat-form-field  appearance="fill">
+      <mat-label>Impacted Application</mat-label>
+      <input type="text"
+             placeholder="Choose impacted Application"
+             #applicationInput
+             matInput
+             [formControl]="applicationControl"
+             [matAutocomplete]="auto">
+      <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+        <mat-option *ngFor="let application of filteredApplication | async" [value]="application">
+          {{application.name}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </form>
+
+
+  <div class="w-2/3 ">
+
+
+  <mat-table class="w-full table-fixed mat-elevation-z2" *ngIf="selectedApplications.length > 0"  [dataSource]="dataSource" >
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+      <mat-cell *matCellDef="let application">{{ application.name }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="code">
+      <mat-header-cell *matHeaderCellDef>Code</mat-header-cell>
+      <mat-cell *matCellDef="let application">{{ application.code }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="owner">
+      <mat-header-cell *matHeaderCellDef>Owner</mat-header-cell>
+      <mat-cell *matCellDef="let application">{{ application.owner }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="description">
+      <mat-header-cell *matHeaderCellDef>Description</mat-header-cell>
+      <mat-cell *matCellDef="let application">{{ application.description }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="dr_tier">
+      <mat-header-cell *matHeaderCellDef>DR Tier</mat-header-cell>
+      <mat-cell *matCellDef="let application">{{ application.dr_tier }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef>Actions</mat-header-cell>
+      <mat-cell *matCellDef="let application; let i = index">
+        <button mat-icon-button color="warn" (click)="removeApplication(i)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let application; columns: displayedColumns"></mat-row>
+  </mat-table>
+
+</div>

@@ -1,0 +1,35 @@
+
+<div class="mx-10 my-10">
+
+
+<form [formGroup]="addUserForm" (ngSubmit)="onAddUserClick()" class="flex flex-col gap-4">
+
+    <mat-form-field >
+      <input matInput placeholder="Username" formControlName="username">
+    </mat-form-field>
+  
+    <mat-form-field >
+      <input matInput placeholder="Full Name" formControlName="fullname">
+    </mat-form-field>
+  
+    <mat-form-field >
+      <input matInput placeholder="Email" formControlName="email">
+    </mat-form-field>
+  
+    <mat-form-field class="w-full">
+      <mat-select placeholder="Role" formControlName="role" >
+        <mat-option *ngFor="let role of roles" [value]="role.name" matTooltip="{{role.description}}" matTooltipPosition="above">
+          {{role.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  
+    <div class="flex justify-between">
+      <button mat-button (click)="onNoClick()">Cancel</button>
+      <button mat-button color="primary" type="submit" [disabled]="!addUserForm.valid">Add User</button>
+    </div>
+  
+  </form>
+
+</div>
+  

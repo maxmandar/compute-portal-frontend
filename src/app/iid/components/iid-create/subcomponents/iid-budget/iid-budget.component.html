@@ -1,0 +1,10 @@
+
+<mat-form-field>
+  <mat-label>Project Budget</mat-label>
+  <input type="text" placeholder="Enter ballpark number" matInput 
+  [formControl]="budgetControl"
+  currencyMask 
+  [options]="{ prefix: 'SGD ', thousands: ',', decimal: '.' }"  
+  >
+  <mat-error *ngIf="budgetControl.invalid">Invalid budget value</mat-error>
+</mat-form-field>

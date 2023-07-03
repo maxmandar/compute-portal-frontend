@@ -1,0 +1,171 @@
+<mat-expansion-panel [(expanded)]="panelOpenState" hideToggl>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      Project Information
+    </mat-panel-title>
+    <mat-panel-description>
+      Enter project information
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+  <!-- Add your form elements here -->
+
+  <form [formGroup]="projectInfoForm" (ngSubmit)="onSubmit()">
+
+    <div class="flex flex-wrap mb-4">
+      <div class="w-full md:w-1/2 lg:w-1/4 lg:pr-4">
+        <mat-form-field>
+          <mat-label>Segment</mat-label>
+          <mat-select formControlName="segment">
+            <mat-option *ngFor="let segment of segments" [value]="segment.id">
+              {{ segment.name }}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="projectInfoForm.controls['segment'].invalid">Segment is required</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="w-full md:w-1/2 lg:w-1/4 lg:pl-4">
+        <mat-form-field>
+          <mat-label>Sub-Segment</mat-label>
+          <mat-select formControlName="subSegment">
+            <mat-option *ngFor="let subSegment of subSegments" [value]="subSegment.id">
+              {{ subSegment.name }}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="projectInfoForm.controls['subSegment'].invalid">Sub-Segment is required</mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="flex flex-wrap mb-4">
+      <div class="w-full md:w-1/2 lg:w-1/2 lg:pr-4">
+        <mat-form-field class="w-full">
+          <mat-label>Project Name</mat-label>
+          <input matInput formControlName="projectName">
+          <mat-error *ngIf="projectInfoForm.controls['projectName'].invalid">Project Name is required</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="w-full md:w-1/2 lg:w-1/4 lg:pl-4">
+        <mat-form-field>
+          <mat-label>Budget</mat-label>
+          <input matInput formControlName="budget">
+          <mat-error *ngIf="projectInfoForm.controls['budget'].invalid">
+            Budget is required and must be a valid number
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="flex flex-wrap mb-4">
+      <div class="w-full">
+        <mat-form-field class="w-full">
+          <mat-label>Objective and Description</mat-label>
+          <textarea matInput formControlName="objectiveAndDescription" rows="5"></textarea>
+          <mat-error *ngIf="projectInfoForm.controls['objectiveAndDescription'].invalid">
+            Objective and Description is required
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+    
+    <app-iid-project-steering></app-iid-project-steering>
+    
+
+
+
+    <div class="flex flex-wrap mb-4">
+      <div class="w-full lg:w-1/2 lg:pr-4">
+        <mat-form-field class="w-full">
+          <mat-label>Technology and Operations Head</mat-label>
+          <input matInput formControlName="technologyAndOperationsHead">
+          <mat-error *ngIf="projectInfoForm.controls['technologyAndOperationsHead'].invalid">Technology and Operations Head is required</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="w-full lg:w-1/2 lg:pl-4">
+        <mat-form-field class="w-full">
+          <mat-label>Project Manager</mat-label>
+          <input matInput formControlName="projectManager">
+          <mat-error *ngIf="projectInfoForm.controls['projectManager'].invalid">Project Manager is required</mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+    
+
+    <div class="flex flex-wrap mb-4">
+      <div class="w-full lg:w-1/2 lg:pr-4">
+        <mat-form-field class="w-full">
+          <mat-label>Domain Architect</mat-label>
+          <input matInput formControlName="domainArchitect">
+          <mat-error *ngIf="projectInfoForm.controls['domainArchitect'].invalid">Domain Architect is required</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="w-full lg:w-1/2 lg:pl-4">
+        <mat-form-field class="w-full">
+          <mat-label>Security Architect</mat-label>
+          <input matInput formControlName="securityArchitect">
+          <mat-error *ngIf="projectInfoForm.controls['securityArchitect'].invalid">Security Architect is required</mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="flex flex-wrap mb-4">
+      <div class="w-full lg:w-1/2 lg:pr-4">
+        <mat-form-field class="w-full">
+          <mat-label>Lead Technical Delivery Manager</mat-label>
+          <input matInput formControlName="leadTechnicalDeliveryManager">
+          <mat-error *ngIf="projectInfoForm.controls['leadTechnicalDeliveryManager'].invalid">Lead Technical Delivery Manager is required</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="w-full lg:w-1/2 lg:pl-4">
+        <mat-form-field class="w-full">
+          <mat-label>Application L3</mat-label>
+          <input matInput formControlName="applicationL3">
+          <mat-error *ngIf="projectInfoForm.controls['applicationL3'].invalid">Application L3 is required</mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+    
+
+    <div class="flex flex-wrap mb-4">
+      <div class="w-full md:w-1/3 lg:w-1/4 xl:w-1/5">
+        <mat-form-field>
+          <mat-label>TAGC Date</mat-label>
+          <input matInput [matDatepicker]="tagcDatePicker" formControlName="tagcDate">
+          <mat-datepicker-toggle matSuffix [for]="tagcDatePicker"></mat-datepicker-toggle>
+          <mat-datepicker #tagcDatePicker></mat-datepicker>
+          <mat-error *ngIf="projectInfoForm.controls['tagcDate'].invalid">TAGC Date is required</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="w-full md:w-1/3 lg:w-1/4 xl:w-1/5">
+        <mat-form-field>
+          <mat-label>ITC Date</mat-label>
+          <input matInput [matDatepicker]="itcDatePicker" formControlName="itcDate">
+          <mat-datepicker-toggle matSuffix [for]="itcDatePicker"></mat-datepicker-toggle>
+          <mat-datepicker #itcDatePicker></mat-datepicker>
+          <mat-error *ngIf="projectInfoForm.controls['itcDate'].invalid">ITC Date is required</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="w-full md:w-1/3 lg:w-1/4 xl:w-1/5">
+        <mat-form-field>
+          <mat-label>Go-Live Date</mat-label>
+          <input matInput [matDatepicker]="goLiveDatePicker" formControlName="goLiveDate">
+          <mat-datepicker-toggle matSuffix [for]="goLiveDatePicker"></mat-datepicker-toggle>
+          <mat-datepicker #goLiveDatePicker></mat-datepicker>
+          <mat-error *ngIf="projectInfoForm.controls['goLiveDate'].invalid">Go-Live Date is required</mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+    
+
+
+  </form>
+
+
+
+
+
+  <mat-panel-description class="mat-expansion-panel-header-description">
+    <mat-action-row>
+      <button mat-button type="button" (click)="onCancel()">Cancel</button>
+      <button mat-button color="primary" type="button" (click)="onSave()">Save</button>
+    </mat-action-row>
+  </mat-panel-description>
+
+</mat-expansion-panel>

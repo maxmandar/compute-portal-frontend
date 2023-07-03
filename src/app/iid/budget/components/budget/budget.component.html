@@ -1,0 +1,15 @@
+<mat-form-field appearance="fill">
+  <mat-label>Enter your budget</mat-label>
+  <input type="text" placeholder="Enter ballpark number" matInput [formControl]="budgetInput" currencyMask
+    [options]="{ prefix: 'SGD ', thousands: ',', decimal: '.' }">
+  <mat-error *ngIf="budgetInput.hasError('required')">
+    Budget is required.
+  </mat-error>
+  <mat-error *ngIf="budgetInput.hasError('min')">
+    Budget must be at least SGD 1.
+  </mat-error>
+  <mat-error *ngIf="budgetInput.hasError('max')">
+    Budget cannot exceed SGD 10,000,000,000.
+  </mat-error>
+
+</mat-form-field>

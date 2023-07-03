@@ -1,0 +1,26 @@
+.form-button-container {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 16px;
+}
+
+.iid-create-image {
+  
+  
+  
+}
+
+/* .mat-action-row {
+  display: flex;
+  justify-content: space-between;
+} */
+
+.mat-action-row button {
+  margin-right: 16px;
+}
+
+
+.mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}

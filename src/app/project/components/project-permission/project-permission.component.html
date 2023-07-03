@@ -1,0 +1,52 @@
+<div class="mx-4 my-4">
+
+  <h2>Users and Permissions</h2>
+  <p>Manage your project access here. Define roles, set permissions, and empower your team with the right level of
+    access.</p>
+
+
+  <div class="mt-10">
+
+    <div class="flex justify-end">
+      <button mat-button color="primary" (click)="openAddUserDialog()">Add User
+        <mat-icon>person_add</mat-icon>
+      </button>
+    </div>
+
+    <div >
+      <table mat-table [dataSource]="dataSource">
+
+        <!-- Username Column -->
+        <ng-container matColumnDef="username">
+          <th mat-header-cell *matHeaderCellDef> Username </th>
+          <td mat-cell *matCellDef="let element"> {{element.username}} </td>
+        </ng-container>
+
+        <!-- Full Name Column -->
+        <ng-container matColumnDef="fullname">
+          <th mat-header-cell *matHeaderCellDef> Full Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.fullname}} </td>
+        </ng-container>
+
+        <!-- Email Column -->
+        <ng-container matColumnDef="email">
+          <th mat-header-cell *matHeaderCellDef> Email </th>
+          <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+        </ng-container>
+
+        <!-- Role Column -->
+        <ng-container matColumnDef="role">
+          <th mat-header-cell *matHeaderCellDef> Role </th>
+          <td mat-cell *matCellDef="let element"> 
+            {{element.role}} 
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+
+  </div>
+
+</div>
